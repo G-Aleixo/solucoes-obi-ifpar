@@ -6,7 +6,7 @@ O objetivo do projeto é criar uma plataforma web onde estudantes possam **resol
 
 A ideia surgiu a partir da necessidade de uma ferramenta que permita aos alunos praticar problemas da OBI e verificar se suas soluções estão corretas de forma simples e rápida.
 
-## Objetivo
+## 📍 Objetivo
 
 Criar um site que permita:
 
@@ -18,7 +18,7 @@ Criar um site que permita:
 
 O projeto também serve como **ambiente de aprendizado colaborativo**, onde alunos podem participar do desenvolvimento de uma aplicação real.
 
-## Sobre o Clube de Programação IFPAR
+## 📖 Sobre o Clube de Programação IFPAR
 
 O Clube de Programação é uma iniciativa estudantil criada no campus com o objetivo de:
 
@@ -29,15 +29,15 @@ O Clube de Programação é uma iniciativa estudantil criada no campus com o obj
 
 Este é o **primeiro projeto oficial do clube**.
 
-## Sobre a OBI
+## 💡 Sobre a OBI
 
-A **Olimpíada Brasileira de Informática (OBI)** é uma competição nacional que busca estimular o estudo de algoritmos, lógica e programação entre estudantes brasileiros.
+A [**Olimpíada Brasileira de Informática (OBI)**](https://olimpiada.ic.unicamp.br/) é uma competição nacional que busca estimular o estudo de algoritmos, lógica e programação entre estudantes brasileiros.
 
 As provas são compostas por desafios de programação que exigem a implementação de algoritmos eficientes para resolver problemas computacionais.
 
 Este projeto busca facilitar o treinamento para a OBI reunindo diversos problemas em uma única plataforma.
 
-## Tecnologias utilizadas
+## 📚 Tecnologias utilizadas
 
 O projeto utiliza tecnologias modernas de desenvolvimento web.
 
@@ -53,12 +53,17 @@ O projeto utiliza tecnologias modernas de desenvolvimento web.
 - Python
 - Flask
 
+### Database
+
+- SQLite
+
 ### Ferramentas
 
 - Git
+- Git Flow
 - GitHub
 
-## Contribuição
+## 👥 Contribuição
 
 Este é um projeto **aberto aos estudantes do Clube de Programação do IFPAR**.
 
@@ -73,7 +78,20 @@ Os participantes podem contribuir de diversas formas:
 
 Mesmo quem está aprendendo pode participar acompanhando o desenvolvimento e contribuindo aos poucos.
 
-## Status do projeto
+### Participantes
+
+- [Brasilicio Henrique](https://github.com/brasilicioh) Coordenador e Dev Fullstack
+- [Bruno Gustavo](https://github.com/brunoficial): Dev Backend
+- [Cauã de Lima](https://github.com/CauaLima18): Dev Backend
+- [Guilherme Aleixo](https://github.com/G-aleixo): Dev Backend
+- [Gustavo Andrey](https://github.com/GustavoAndreyIF): Dev Frontend
+- [Júlio César](https://github.com/JCOAlves): Dev Fullstack
+- [Kaio Henrique](https://github.com/pc123456789n): Dev Frontend
+- [Leonardo Kauffman](https://github.com/Leonardo1234321): Dev Backend
+- [Rita de Cássia](https://github.com/Ritinha-tari): Estudante Aprendiz
+- [Thiago Freitas](https://github.com/thifre09): Dev Frontend
+
+## ⚙️ Status do projeto
 
 Projeto em desenvolvimento.
 
