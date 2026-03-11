@@ -86,6 +86,18 @@ Instale as dependências do Python:
 pip install -r requirements.txt
 ```
 
+Atualize os dados das questões:
+```bash
+python scripts/get_urls.py
+```
+
+Baixe os gabaritos de todas as questões:
+```bash
+python scripts/download_answers.py
+```
+Ou baixe e extraia cada gabarito manualmente para a pasta ```public/answers/<nome_do_zip>```.
+
+
 Inicie o servidor Flask:
 ```bash
 flask --app app.py run
