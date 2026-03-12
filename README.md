@@ -147,9 +147,13 @@ Mesmo quem ainda está aprendendo pode participar acompanhando o desenvolvimento
 
 ### 👨‍💻 Participantes
 
+- [Alanderson Lima](https://github.com/Alanderson-LS) — Estudante Aprendiz
 - [Brasilicio Henrique](https://github.com/brasilicioh) — Coordenador e Dev Fullstack
 - [Bruno Gustavo](https://github.com/brunoficial) — Dev Backend
 - [Cauã de Lima](https://github.com/CauaLima18) — Dev Backend
+- [Douglas Ryan](https://github.com/Douglas-Mesquita) — Estudante Aprendiz
+- [Emanuele Rafaela](https://github/ManulSilva) — Estudante Aprendiz
+- [Gabriel Nascimento](https://github.com/GGGabriell) — Estudante Aprendiz
 - [Guilherme Aleixo](https://github.com/G-aleixo) — Dev Backend
 - [Gustavo Andrey](https://github.com/GustavoAndreyIF) — Dev Frontend
 - [Júlio César](https://github.com/JCOAlves) — Dev Fullstack
