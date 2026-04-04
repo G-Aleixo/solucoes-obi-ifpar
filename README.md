@@ -95,7 +95,7 @@ Baixe os gabaritos de todas as questões:
 ```bash
 python scripts/download_answers.py
 ```
-Ou baixe e extraia cada gabarito manualmente para a pasta ```public/answers/<nome_do_zip>```.
+Ou baixe e extraia cada gabarito manualmente para a pasta ```questions/answers/<nome_do_zip>```.
 
 
 Inicie o servidor Flask:
