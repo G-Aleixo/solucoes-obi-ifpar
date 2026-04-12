@@ -130,6 +130,24 @@ A aplicação web estará disponível em:
 http://localhost:5173/solucoes-obi-ifpar/
 ```
 
+## Documentação
+
+Você pode acessar a documentação oficial [nesse link](/#), ou compilar ela com os dados do proprio projeto
+
+### Compilar a documentação
+1. Baixe as dependências do Sphinx em `docs/requirements.txt` e as dependências do projeto em `src/requirements.txt` com o `pip`:
+``` console
+   $ pip install -r docs/requirements.txt -r src/requirements.txt
+```
+
+2. Vá para o diretório `src/` e rode o comando ``rm -r ../docs/build/html && sphinx-build ../docs/source/ ../docs/build/html``:
+``` console
+   $ cd src
+   $ rm -r ../docs/build/html && sphinx-build ../docs/source/ ../docs/build/html
+```
+
+3. A documentação estara disponível em `docs/build/html/`, use seu navegador preferido para acessar o arquivo `docs/build/html/index.html`.
+
 ## 👥 Contribuição
 
 Este é um projeto **aberto aos estudantes do Clube de Programação do IFPAR**.
