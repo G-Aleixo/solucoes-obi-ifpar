@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Topbar from "../../global_components/Topbar";
 
@@ -38,7 +38,11 @@ let teste = [
 export default function MainPage({ selection }) {
   const [fileName, setFileName] = useState("");
   const [file, setFile] = useState(null);
-  const [responseQuestion, setResponse] = useState([]);
+
+  const [largerMemory, setLargerMemory] = useState(null);
+  const [longerTime, setLongerTime] = useState(null);
+  const [subtasks, setSubtasks] = useState(null);
+
   const { post } = useFetch();
 
   const handleSetFile = (event) => {
@@ -57,16 +61,33 @@ export default function MainPage({ selection }) {
     setFile(null);
   };
 
-  const handleUpload = async () => {
-    const { year, level, phase, name } = selection;
-    const body = {
-      year: year, level: level,
-      phase: phase, name: name,
-      file: file, fileName: fileName
-    };
-    const data = await post("/questions/validate");
-    data ? setResponse(data) : null // --> Resposta ser exibida no Frontend (responsabilidade do time front)
+  const setResponseValues = (memory, time, subtasks) => {
+    setLargerMemory(memory);
+    setLongerTime(time);
+    setSubtasks(subtasks);
   };
+
+  const handleUpload = async () => {
+    const { year, level, phase } = selection;
+    const body = {
+      year: year,
+      phase: phase,
+      level: level,
+      name: selection.problem.toLowerCase(),
+      filename: fileName,
+      file: await file.text(),
+    };
+    const res = await post("/questions/validate", body);
+    const data = await res.data;
+    setResponseValues(data.max_memory, data.max_time, data.subtasks);
+  };
+
+  // TIRAR DEPOIS DOS TESTES: NÃO DEVE EXISTIR ESSE HOOK EM PRODUÇÃO
+  useEffect(() => {
+    console.log(subtasks);
+    console.log(longerTime);
+    console.log(largerMemory);
+  }, [subtasks]);
 
   return (
     <div className="h-full bg-slate-900 text-white overflow-y-auto light:bg-white">
