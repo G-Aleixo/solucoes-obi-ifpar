@@ -8,33 +8,6 @@ import Results from "./main_components/Results";
 
 import { useFetch } from "../../../../hooks/useFetch";
 
-let teste = [
-  {
-    nTeste: 1,
-    status: "Aprovado",
-    tempoTeste: 100,
-    menorTempo: 2,
-    usoMemoria: 10,
-    tipoFalha: "",
-  },
-  {
-    nTeste: 2,
-    status: "Reprovado",
-    tempoTeste: 150,
-    menorTempo: 5,
-    usoMemoria: 15,
-    tipoFalha: "Tempo excedido",
-  },
-  {
-    nTeste: 3,
-    status: "Erro",
-    tempoTeste: 200,
-    menorTempo: 10,
-    usoMemoria: 20,
-    tipoFalha: "",
-  },
-];
-
 export default function MainPage({ selection }) {
   const [fileName, setFileName] = useState("");
   const [file, setFile] = useState(null);
@@ -105,7 +78,7 @@ export default function MainPage({ selection }) {
 
       <Input fileName={fileName} file={file} onFileChange={handleSetFile} />
 
-      <Results testes={teste} />
+      <Results memory={largerMemory} time={longerTime} subtasks={subtasks} />
     </div>
   );
 }
