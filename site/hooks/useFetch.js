@@ -14,10 +14,10 @@ export function useFetch() {
 
     try {
       const response = await fetch(baseUrl + url, {
-        headers: options.content ? {
+        headers: {
           "Content-Type": "application/json",
           ...options.headers,
-        } : { ...options.headers }, // Para POST-UPLOAD de arquivos, Content-Type não é definido
+        },
         ...options,
       });
 
@@ -44,32 +44,11 @@ export function useFetch() {
 
   const get = (url) => request(url);
 
-  const post = (url, body) =>{
-    if(body.file && body.fileName){
-      const ObjectData = new FormData();
-    
-      const { file, fileName, year, level, phase, name } = body;
-      ObjectData.append('year', year);
-      ObjectData.append('level', level);
-      ObjectData.append('phase', phase);
-      ObjectData.append('name', name);
-      ObjectData.append('file', file);
-      ObjectData.append('filename', fileName);
-      
-      request(url, {
-        method: "POST",
-        body: ObjectData,
-        content: false // "Content-Type": "application/json" não pode ser definido no upload arquivos
-      });
-
-    } else{
-      request(url, {
-        method: "POST",
-        body: JSON.stringify(body),
-        content: true // Define "Content-Type": "application/json"
-      });
-    };
-  };
+  const post = (url, body) =>
+    request(url, {
+      method: "POST",
+      body: JSON.stringify(body),
+    });
 
   return { get, post, request, error };
 }
