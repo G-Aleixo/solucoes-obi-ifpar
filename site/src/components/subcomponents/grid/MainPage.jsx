@@ -6,6 +6,8 @@ import Header from "./main_components/Header";
 import Input from "./main_components/Input";
 import Results from "./main_components/Results";
 
+import { useFetch } from "../../../../hooks/useFetch";
+
 let teste = [
   {
     nTeste: 1,
@@ -36,6 +38,8 @@ let teste = [
 export default function MainPage({ selection }) {
   const [fileName, setFileName] = useState("");
   const [file, setFile] = useState(null);
+  const [responseQuestion, setResponse] = useState([]);
+  const { post } = useFetch();
 
   const handleSetFile = (event) => {
     const selectedFile = event.target.files[0];
@@ -53,11 +57,15 @@ export default function MainPage({ selection }) {
     setFile(null);
   };
 
-  const handleUpload = () => {
-    console.log("Nome do arquivo:", fileName);
-    console.log("Arquivo selecionado:", file);
-
-    handleCancel();
+  const handleUpload = async () => {
+    const { year, level, phase, name } = selection;
+    const body = {
+      year: year, level: level,
+      phase: phase, name: name,
+      file: file, fileName: fileName
+    };
+    const data = await post("/questions/validate");
+    data ? setResponse(data) : null // --> Resposta ser exibida no Frontend (responsabilidade do time front)
   };
 
   return (

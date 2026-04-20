@@ -45,17 +45,17 @@ export function useFetch() {
   const get = (url) => request(url);
 
   const post = (url, body) =>{
-    if(body.file && body.filename){
+    if(body.file && body.fileName){
       const ObjectData = new FormData();
     
-      const { file, filename, year, level, phase, name } = body;
-      ObjectData.append('file', file);
-      ObjectData.append('filename', filename);
+      const { file, fileName, year, level, phase, name } = body;
       ObjectData.append('year', year);
       ObjectData.append('level', level);
       ObjectData.append('phase', phase);
       ObjectData.append('name', name);
-
+      ObjectData.append('file', file);
+      ObjectData.append('filename', fileName);
+      
       request(url, {
         method: "POST",
         body: ObjectData,
