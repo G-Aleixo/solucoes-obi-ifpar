@@ -13,18 +13,18 @@ export function Loading() {
       } else {
         setText(text + ".");
       }
-    }, 500);
+    }, 200);
   });
 
   return (
     <>
-      {count > 2 && (
+      {count && (
         <div className="loading-bg">
-          <AiOutlineLoading className="animate-spin size-20 invert"/>
-            
+          <AiOutlineLoading className="animate-spin size-20 invert" />
+
           <p className="text-white font-semibold text-xl">{text}</p>
           <div className="h-10 flex items-center">
-            {count > 24 && (
+            {count > 52 && (
               <p className="font-semibold text-white text-2xl pt-3">
                 Algo deu errado, aguarde um pouco mais
               </p>
