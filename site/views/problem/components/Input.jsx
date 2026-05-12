@@ -11,9 +11,32 @@ export function Input({ fileName, file, onFileChange }) {
     }
   }, [file]);
 
+  function handleDrop(e) {
+    e.preventDefault();
+
+    const droppedFiles = e.dataTransfer.files;
+
+    if (droppedFiles && droppedFiles.length > 0) {
+      inputRef.current.files = droppedFiles;
+
+      onFileChange({
+        target: {
+          files: droppedFiles,
+        },
+      });
+    }
+  }
+
   return (
     <div className="flex justify-center items-center">
-      <label htmlFor="file-upload" className="input-label">
+      <label
+        htmlFor="file-upload"
+        className="input-label"
+        onDragOver={(e) => {
+          e.preventDefault();
+        }}
+        onDrop={handleDrop}
+      >
         {!fileName ? (
           <>
             <FaCloudUploadAlt className="w-6 h-6" />
