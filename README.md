@@ -81,6 +81,11 @@ Acesse a pasta do backend:
 cd src
 ```
 
+Copie o .env e coloque as credenciais
+```bash
+cp .env.example .env
+```
+
 Instale as dependências do Python:
 ```bash
 pip install -r requirements.txt
@@ -96,7 +101,6 @@ Baixe os gabaritos de todas as questões:
 python scripts/download_answers.py
 ```
 Ou baixe e extraia cada gabarito manualmente para a pasta ```questions/answers/<nome_do_zip>```.
-
 
 Inicie o servidor Flask:
 ```bash
