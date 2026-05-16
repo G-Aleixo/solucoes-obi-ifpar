@@ -183,7 +183,9 @@ def validate_answers(data: ValidateQuestionDTO):
     # re-assemble the folder name from the data
     folder_name = f"{year}f{phase}p{level}_{name}"
 
-    folder_path = pathlib.Path(os.path.abspath("questions/answers/" + folder_name))
+    BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
+
+    folder_path = BASE_DIR / "questions" / "answers" / folder_name
 
     if not os.path.exists(folder_path):
         raise ContentNotFound("Problem answer path not found")
