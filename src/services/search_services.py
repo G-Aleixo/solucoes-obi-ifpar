@@ -1,17 +1,20 @@
 import json
+from pathlib import Path
 from ..dtos.validate_search_dto import ValidateSearchDTO
 
 JSON_DATA = {}
+BASE_DIR = Path(__file__).resolve().parent.parent
+JSON_PATH = BASE_DIR / "questions" / "answer_urls.json"
 
 def load_json():
     global JSON_DATA
     if JSON_DATA != {}:
         return
     try:
-        with open("./questions/answer_urls.json", "r", encoding="utf-8") as json_file:
+        with open(JSON_PATH, "r", encoding="utf-8") as json_file:
             JSON_DATA = json.load(json_file)
     except FileNotFoundError:
-        JSON_DATA = {}
+        raise FileNotFoundError(f"Missing url json file at '{JSON_PATH}'")
 
 def search_by_year(data: dict, year: str) -> dict[str, dict]:
     if year in data:

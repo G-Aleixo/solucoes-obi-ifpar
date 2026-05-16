@@ -1,19 +1,22 @@
 import json
+from pathlib import Path
 from ..errors.invalid_field import InvalidField
 from ..errors.missing_field import MissingField
 from ..errors.content_not_found import ContentNotFound
 
 JSON_DATA = {}
+BASE_DIR = Path(__file__).resolve().parent.parent
+JSON_PATH = BASE_DIR / "questions" / "answer_urls.json"
 
 def load_json():
     global JSON_DATA
     if JSON_DATA != {}:
         return
     try:
-        with open("./questions/answer_urls.json", "r", encoding="utf-8") as json_file:
+        with open(JSON_PATH, "r", encoding="utf-8") as json_file:
             JSON_DATA = json.load(json_file)
     except FileNotFoundError:
-        raise FileNotFoundError("Missing url json file at 'src/questions/answer_urls.json', follow the README to fix")
+        raise FileNotFoundError(f"Missing url json file at '{JSON_PATH}'")
 
 def validate(year=None, phase=None, level=None, problem=None):
     load_json()
