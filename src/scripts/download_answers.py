@@ -76,6 +76,8 @@ def download_zip(url: str, base_folder="questions/answers/"):
         invalid_zips[url] = "Bad Zip File"
         print(f"zip at {url} was invalid, skipping")
         return False, url
+    except FileExistsError:
+        return True, url
     
     # success?
     return True, url
