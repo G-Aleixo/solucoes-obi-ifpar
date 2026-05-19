@@ -1,0 +1,2 @@
+a=int(input());b=int(input());c=int(input());print(sorted([a,b,c])[1])
+curl -X POST -H "Content-Type: application/json" -d '{"year":"2021","level":"2","phase":"j","name":"idade","filename":"idade.py","file":"a=int(input());b=int(input());c=int(input());print(sorted([a,b,c])[1])"}' http://127.0.0.1:5000/questions/validate
