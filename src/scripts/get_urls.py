@@ -77,16 +77,22 @@ def parse_zips(document: BeautifulSoup, filter: re.Pattern = None) -> dict:
         if title is None or not re.match("Nível.+", title.get_text()):
             title = link.find_previous("h2")
         if title is None or not re.match("Nível.+", title.get_text()):
-            title = link.find_previous("h2")
-        if title is None or not re.match("Nível.+", title.get_text()):
             title = link.find_previous("h1")
+        if title is None or not re.match("Nível.+", title.get_text()):
+            title = None
+        
+        
         
         if title is None: title = ""
+        else: title = title.get_text()
         
         pmatch = re.match(re.compile(r"/static/extras/obi(\d{4})/.*?(cf|f\d+)", re.IGNORECASE), link.attrs["href"])
         
         year = pmatch.group(1)
         phase = pmatch.group(2)
+        
+        if phase[0] == "f": phase = phase[1]
+        if phase == "cf": phase = "f"
         
         res.append({
             "link": link.attrs["href"],
@@ -97,13 +103,13 @@ def parse_zips(document: BeautifulSoup, filter: re.Pattern = None) -> dict:
     
     return res
 
-def convert_level(level: Tag) -> str:
-    level = level.get_text().strip().lower()
+def convert_level(level: str) -> str:
+    level = level.strip().lower()
 
     patterns = [
-        (r"^nível\s*sênior$", "s"),
-        (r"^nível\s*júnior$", "j"),
-        (r"^nível\s*universitário$", "u"),
+        (r"^nível\s*s.*$", "s"),
+        (r"^nível\s*j.*$", "j"),
+        (r"^nível\s*u.*$", "u"),
         (r"^nível\s*1$", "1"),
         (r"^nível\s*2$", "2"),
         (r"^nível\s*3$", "3"),
@@ -120,6 +126,8 @@ def parse_urls(urls: list[dict]):
         return defaultdict(tree)
 
     parsed = tree()
+    
+    urls = sorted(urls, key=lambda url: (url["year"], url["phase"], url["level"]))
     
     for link in urls:
         data = [link["link"], False]
