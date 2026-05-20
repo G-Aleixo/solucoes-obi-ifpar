@@ -29,7 +29,7 @@ def update_urls(urls: list[str]): # updates to True
 
     for url in urls:
         # more regex yeeeeeeeeeeeeeeee
-        groups = re.search(r".+/(\d{4})(?:c(f)|f(\d))(b)?p([\djsu])_(.+).zip", url[0]).groups()
+        groups = re.search(r".+/(\d{4})(?:(cf)|f(\d))(b)?p([\djsu])_(.+).zip", url[0]).groups()
 
         # group 1 is year
         # group 3 is normal phase
