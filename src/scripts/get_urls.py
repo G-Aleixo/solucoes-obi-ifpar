@@ -92,7 +92,6 @@ def parse_zips(document: BeautifulSoup, filter: re.Pattern = None) -> dict:
         phase = pmatch.group(2)
         
         if phase[0] == "f": phase = phase[1]
-        if phase == "cf": phase = "f"
         
         res.append({
             "link": link.attrs["href"],
